@@ -22,7 +22,7 @@ with st.sidebar:
     st.write("Keyword Filters (case sensitive)")
     type = st.text_input("Property Type", "")
     area = st.text_input('Area', "")
-    postcode = st.text_input('Postcode Sector', "")
+    postcode = st.text_input('Postcode', "")
 
 options = st.multiselect(
     'Select columns to show',
