@@ -19,10 +19,7 @@ df = upload_epc_data("ezyzip.zip")
 columns = list(df.columns)
 
 with st.sidebar:
-    
-    st.H2("Filters)
-    st.write("Case sensitive filters.")
-    
+    st.write("Keyword Filters (case sensitive)")
     type = st.text_input("Property Type", "")
     area = st.text_input('Area', "")
     postcode = st.text_input('Postcode Sector', "")
