@@ -14,7 +14,7 @@ def upload_epc_data(str):
     return(df)
 
 
-df = upload_epc_data("EPC_London_Consolidated.csv")
+df = upload_epc_data("ezyzip.zip")
 
 columns = list(df.columns)
 
