@@ -7,7 +7,7 @@ st.set_page_config(layout="wide")
 @st.cache_data
 def upload_epc_data(str):
     
-    df = pd.read_csv(str,compresion="zip")
+    df = pd.read_csv(str,compression="zip")
 
     df[['POSTCODE_SECTOR','POSTCODE_SEC_2']] = df['POSTCODE'].str.split(" ", 0, expand=True)
 
