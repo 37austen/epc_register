@@ -9,7 +9,7 @@ def upload_epc_data(str):
     
     df = pd.read_csv(str,compression="zip")
 
-    df[['POSTCODE_SECTOR','POSTCODE_SEC_2']] = df['POSTCODE'].str.split(" ", 0, expand=True)
+#     df[['POSTCODE_SECTOR','POSTCODE_SEC_2']] = df['POSTCODE'].str.split(" ", 0, expand=True)
 
     return(df)
 
@@ -44,7 +44,7 @@ if type is not None or  area is not None or postcode is not None:
 
     if "POSTCODE_SECTOR" in options:
     
-        df = df[df.POSTCODE_SECTOR.str.contains(postcode)]
+        df = df[df.POSTCODE.str.contains(postcode)]
     
 
 st.dataframe(df, height=500,width=3000)
