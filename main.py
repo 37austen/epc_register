@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd 
 import numpy as np 
+import time
 
 st.set_page_config(layout="wide")
 
@@ -9,7 +10,7 @@ def upload_epc_data(str):
     
     df = pd.read_csv(str,compression="zip")
 
-#     df[['POSTCODE_SECTOR','POSTCODE_SEC_2']] = df['POSTCODE'].str.split(" ", 0, expand=True)
+    df[['POSTCODE_SECTOR','POSTCODE_SEC_2']] = df['POSTCODE'].str.split(" ", 0, expand=True)
 
     return(df)
 
@@ -22,7 +23,7 @@ with st.sidebar:
     st.write("Keyword Filters (case sensitive)")
     type = st.text_input("Property Type", "")
     area = st.text_input('Area', "")
-    postcode = st.text_input('Postcode', "")
+    postcode = st.text_input('Postcode Sector', "")
 
 options = st.multiselect(
     'Select columns to show',
@@ -46,8 +47,9 @@ if type is not None or  area is not None or postcode is not None:
     
         df = df[df.POSTCODE.str.contains(postcode)]
     
-
-st.dataframe(df, height=500,width=3000)
+with st.spinner('Loading...'):
+    time.sleep(1)
+    st.dataframe(df, height=500,width=3000)
 
 st.download_button(
                 label="Download",
