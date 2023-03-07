@@ -20,7 +20,7 @@ columns = list(df.columns)
 
 with st.sidebar:
     
-    st.warning("Case sensitive filters.)
+    st.warning("Case sensitive filters.")
     
     type = st.text_input("Property Type", "")
     area = st.text_input('Area', "")
