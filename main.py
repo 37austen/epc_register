@@ -32,11 +32,19 @@ options = st.multiselect(
 
 df = df[options]
 
-if type is not None or  area is not None or  postcode is not None:
+if type is not None or  area is not None or postcode is not None:
     
-    df = df[df.PROPERTY_TYPE.str.contains(type)]
-    df = df[df.CONSTITUENCY_LABEL.str.contains(area)]
-    df = df[df.POSTCODE_SECTOR.str.contains(postcode)]
+    if "PROPERTY_TYPE" in options:
+       
+        df = df[df.PROPERTY_TYPE.str.contains(type)]
+    
+    if "CONSTITUENCY_LABEL" in options:
+       
+        df = df[df.CONSTITUENCY_LABEL.str.contains(area)]
+
+    if "POSTCODE_SECTOR" in options:
+    
+        df = df[df.POSTCODE_SECTOR.str.contains(postcode)]
     
 
 st.dataframe(df, height=500,width=3000)
