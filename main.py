@@ -42,7 +42,7 @@ if type is not None or  area is not None or postcode is not None:
        
         df = df[df.CONSTITUENCY_LABEL.str.contains(area)]
 
-    if "POSTCODE_SECTOR" in options:
+    if "POSTCODE" in options:
     
         df = df[df.POSTCODE.str.contains(postcode)]
     
